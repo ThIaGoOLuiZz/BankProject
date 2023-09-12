@@ -1,5 +1,8 @@
+package View;
+
 import javax.swing.*;
 import java.util.ArrayList;
+
 
 public class InputOutput {
     public static int getIndexMenuZero(){
@@ -115,7 +118,7 @@ public class InputOutput {
 
 
         JOptionPane.showMessageDialog(null, "Name: " + name + "\n" + "Type: " + types + "\n" +
-                                        "Current balance: " + balance + "\n" + "CPF: " + cpf, "Account: " + name,
+                                        "Current balance: R$" + balance + "\n" + "CPF: " + cpf, "Account: " + name,
                                         JOptionPane.DEFAULT_OPTION);
     }
 

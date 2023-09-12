@@ -1,6 +1,10 @@
+package Control;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import Model.*;
+import View.*;
 
 public class Control {
     Bank bank = new Bank();
@@ -21,7 +25,7 @@ public class Control {
 
             switch (optionSelected)
             {
-                case 0: // Create Account option
+                case 0: // Create Model.Account option
                     Account account = new Account();
                     name = InputOutput.getNameAccount();
 
@@ -49,7 +53,7 @@ public class Control {
                     newBalance = InputOutput.depositMoney();
 
                     bank.getAccounts().get(index).setBalance(newBalance);
-                    depositMovement.setMoves("Deposit: " + newBalance + " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                    depositMovement.setMoves("Deposit: R$" + newBalance + " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
 
 
                     bank.getAccounts().get(index).setDepositsMoves(depositMovement.getMoves());
@@ -74,7 +78,7 @@ public class Control {
                         }
                     }while (count!=1);
 
-                    withdrawMovement.setMoves("Withdraw: " + newBalance + " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                    withdrawMovement.setMoves("Withdraw: R$" + newBalance + " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
                     bank.getAccounts().get(index).setWithdrawMoves(withdrawMovement.getMoves());
                     bank.getAccounts().get(index).setTotalMoves(withdrawMovement.getMoves());
                     InputOutput.showBalance(bank.getAccounts().get(index).getBalance(), bank.getAccounts().get(index).getNameAccount());
